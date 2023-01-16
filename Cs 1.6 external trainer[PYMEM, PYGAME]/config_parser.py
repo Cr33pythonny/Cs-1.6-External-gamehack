@@ -9,7 +9,7 @@ def find_weapon_settings(weapon_name:str,m:list):
                 val = 0
                 continue
             
-            if val !=3:
+            if val !=4:
                 parse_data.append(m[i][0])
                 val +=1
         except(TypeError):
@@ -82,3 +82,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
