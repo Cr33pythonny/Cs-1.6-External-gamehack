@@ -8,11 +8,11 @@ import multiprocessing
 
 def main():
 
-    
-
-        multiprocessing.Process(target=AIMBOT).start()
-
         multiprocessing.Process(target=updateent).start()
+
+        if get_value_from_cfg('AIMBOT','MISC'):
+            multiprocessing.Process(target=AIMBOT).start()
+
         if get_value_from_cfg('ESP','MISC'):
             multiprocessing.Process(target=ESP).start()
 
