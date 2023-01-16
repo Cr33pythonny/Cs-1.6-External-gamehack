@@ -159,10 +159,10 @@ def AIMBOT():
 
         WEAPON_ID = pm.read_int(client + 0x125F10)
         current_weapon = get_current_weapon(WEAPON_ID)
-        fov = get_value_from_cfg('FOV',current_weapon)
-        smooth = get_value_from_cfg('SMOOTH',current_weapon)
-        rcs = get_value_from_cfg('RCS',current_weapon)
-        SCALEFACTOR = get_value_from_cfg('SCALEFACTOR',current_weapon)
+        fov = get_value_from_cfg('FOV',current_weapon,4)
+        smooth = get_value_from_cfg('SMOOTH',current_weapon,4)
+        rcs = get_value_from_cfg('RCS',current_weapon,4)
+        SCALEFACTOR = get_value_from_cfg('SCALEFACTOR',current_weapon,4)
         recoil_y = pm.read_float(hw + 0x108AED0)
         recoil_x = pm.read_float(hw + 0x108AED0 + 4)
 
@@ -177,7 +177,7 @@ def AIMBOT():
                 distx /= smooth
                 disty /=smooth
                 if abs(distx) <= scalling[0] and abs(disty) <= scalling[1] and win32api.GetAsyncKeyState(0x01) & 0x8000:
-                    win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(distx), int(disty), 0, 0)  
+                    win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(distx), int(disty), 0, 0)   
     
     
 
