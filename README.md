@@ -9,6 +9,8 @@
 
 Coded on steam version Counter-Strike
 
+Used Vecorigins to do that :(, probably never find bonetransform 
+
 Libs used : Pymem, Pygame,Pywin32,keyboard
 
 ###### -Be carefull, There are too many shit code :)
