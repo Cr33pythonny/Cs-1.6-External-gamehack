@@ -1,5 +1,5 @@
 import os
-def find_weapon_settings(weapon_name:str,m:list):
+def find_weapon_settings(weapon_name:str,m:list,setting_size):
     parse_data = []
     val = 0
     for i in range(len(m)):
@@ -9,7 +9,7 @@ def find_weapon_settings(weapon_name:str,m:list):
                 val = 0
                 continue
             
-            if val !=4:
+            if val !=setting_size:
                 parse_data.append(m[i][0])
                 val +=1
         except(TypeError):
@@ -17,9 +17,9 @@ def find_weapon_settings(weapon_name:str,m:list):
 
     return parse_data
 
-def get_value_from_cfg(search:str,weapon_name:str):
+def get_value_from_cfg(search:str,weapon_name:str,setting_size:int):
     mass = get_split_strings()
-    new_list = find_weapon_settings(weapon_name,mass)
+    new_list = find_weapon_settings(weapon_name,mass,setting_size)
     for i in new_list:
         if search in i:
             if '=' in i:
