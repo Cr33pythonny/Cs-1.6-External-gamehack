@@ -1,6 +1,6 @@
 from functions import AIMBOT,ESP,ddrun,bhop,updateent
 from config_parser import get_value_from_cfg
-from multiprocessing import Process
+import multiprocessing 
 
 
 
@@ -9,17 +9,19 @@ from multiprocessing import Process
 def main():
 
     
-    Process(target=AIMBOT).start()
 
-    Process(target=updateent).start()
-    if get_value_from_cfg('ESP','MISC'):
-        Process(target=ESP).start()
+        multiprocessing.Process(target=AIMBOT).start()
 
-    if get_value_from_cfg('BHOP','MISC'):
-        Process(target=bhop).start()
-        
-    if get_value_from_cfg('DDRUN','MISC'):
-        Process(target=ddrun).start()
+        multiprocessing.Process(target=updateent).start()
+        if get_value_from_cfg('ESP','MISC'):
+            multiprocessing.Process(target=ESP).start()
+
+        if get_value_from_cfg('BHOP','MISC'):
+            multiprocessing.Process(target=bhop).start()
+            
+        if get_value_from_cfg('DDRUN','MISC'):
+            multiprocessing.Process(target=ddrun).start()
+
     
         
 
@@ -28,4 +30,5 @@ def main():
         
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     main()
