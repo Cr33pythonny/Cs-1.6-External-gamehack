@@ -1,7 +1,7 @@
 # Cs-1.6-External-gamehack
 -AIMBOT<br><br>
 -RCS <br><br>
--ESP<br><br>
+-ESP(ONLY window/borderless mode)<br><br>
 -DDRUN<br><br>
 -BHOP<br><br>
 -WEAPONCONFIG<br><br>
