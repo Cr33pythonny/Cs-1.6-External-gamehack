@@ -156,18 +156,21 @@ def AIMBOT():
         w,h = read_resolution()              
         targets = get_targets()
         nearest_index = find_best_target(targets,w,h)
+
         WEAPON_ID = pm.read_int(client + 0x125F10)
         current_weapon = get_current_weapon(WEAPON_ID)
         fov = get_value_from_cfg('FOV',current_weapon)
         smooth = get_value_from_cfg('SMOOTH',current_weapon)
         rcs = get_value_from_cfg('RCS',current_weapon)
+        SCALEFACTOR = get_value_from_cfg('SCALEFACTOR',current_weapon)
         recoil_y = pm.read_float(hw + 0x108AED0)
         recoil_x = pm.read_float(hw + 0x108AED0 + 4)
+
         if nearest_index != -1:
             dist = calc_dist(targets[nearest_index][0],targets[nearest_index][1],targets[nearest_index][2] + 18)
             screen = w2s(targets[nearest_index][0],targets[nearest_index][1],targets[nearest_index][2] + 18,w,h)
 
-            scalling = calc_scalling(fov,fov,dist,w)
+            scalling = calc_scalling(fov,fov,dist,SCALEFACTOR)
             if screen and scalling:
                 REC = (screen[0] + recoil_x * rcs,screen[1] +abs(recoil_y) * rcs)
                 distx,disty =get_distance(REC,w,h)
@@ -175,6 +178,7 @@ def AIMBOT():
                 disty /=smooth
                 if abs(distx) <= scalling[0] and abs(disty) <= scalling[1] and win32api.GetAsyncKeyState(0x01) & 0x8000:
                     win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(distx), int(disty), 0, 0)  
+    
     
 
 
