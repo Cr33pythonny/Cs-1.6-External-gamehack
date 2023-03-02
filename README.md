@@ -13,7 +13,7 @@ Used Vecorigins to do that :(, probably never find bonetransform
 
 Libs used : Pymem, Pygame,Pywin32,keyboard
 
-###### -Be carefull, There are too many shit code :)
+###### -Be careful, There are too many shit code :)
 ![image](https://user-images.githubusercontent.com/122759684/212586680-bafab421-da90-4cb0-8179-27188b489fe1.png)
 
 
